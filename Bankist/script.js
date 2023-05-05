@@ -83,3 +83,37 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+const calculateTotalBalance = function (movements) {
+  const totalBalance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${totalBalance}€`;
+};
+
+calculateTotalBalance(account1.movements);
+
+const calculateDisplaySummary = function (movements) {
+  const totalDeposit = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumIn.textContent = `${totalDeposit}€`;
+
+  const totalWithadrawal = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumOut.textContent = `${Math.abs(totalWithadrawal)}€`;
+
+  const totalInterest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, arr) => {
+      console.log(arr);
+      return int > 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+
+  labelSumInterest.textContent = `${totalInterest}€`;
+};
+
+calculateDisplaySummary(account1.movements);
