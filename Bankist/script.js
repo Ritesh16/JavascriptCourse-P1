@@ -82,33 +82,28 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
-
 const calculateTotalBalance = function (movements) {
   const totalBalance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${totalBalance}€`;
 };
 
-calculateTotalBalance(account1.movements);
-
-const calculateDisplaySummary = function (movements) {
-  const totalDeposit = movements
+const calculateDisplaySummary = function (account) {
+  const totalDeposit = account.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
 
   labelSumIn.textContent = `${totalDeposit}€`;
 
-  const totalWithadrawal = movements
+  const totalWithadrawal = account.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
 
   labelSumOut.textContent = `${Math.abs(totalWithadrawal)}€`;
 
-  const totalInterest = movements
+  const totalInterest = account.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * account.interestRate) / 100)
     .filter((int, arr) => {
-      console.log(arr);
       return int > 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -116,4 +111,63 @@ const calculateDisplaySummary = function (movements) {
   labelSumInterest.textContent = `${totalInterest}€`;
 };
 
-calculateDisplaySummary(account1.movements);
+const createUserNames = function (accounts) {
+  accounts.forEach(function (account) {
+    account.userName = account.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+const updateUI = function (account) {
+  displayMovements(account.movements);
+
+  calculateTotalBalance(account.movements);
+
+  calculateDisplaySummary(account);
+};
+
+createUserNames(accounts);
+
+// Event handler
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find(x => x.userName === inputLoginUsername.value);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    labelWelcome.textContent = `Welcome back! ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = 100;
+
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputClosePin.blur();
+
+    updateUI(currentAccount);
+  }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputTransferAmount.value);
+  const receiverAccount = accounts.find(
+    acc => acc.userName === inputTransferTo.value
+  );
+
+  console.log(amount, receiverAccount);
+
+  if (
+    amount > 0 &&
+    receiverAccount &&
+    currentAccount.totalBalance >= amount &&
+    receiverAccount?.userName !== currentAccount.userName
+  ) {
+  }
+});
