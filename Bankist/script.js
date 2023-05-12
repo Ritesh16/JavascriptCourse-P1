@@ -194,3 +194,20 @@ btnClose.addEventListener('click', function (e) {
 
   inputTransferTo.value = inputTransferAmount.value = '';
 });
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const loanRequested = Number(inputLoanAmount.value);
+
+  if (
+    loanRequested &&
+    loanRequested > 0 &&
+    currentAccount.movements.some(mov => mov > loanRequested * 0.1)
+  ) {
+    currentAccount.movements.push(loanRequested);
+
+    inputLoanAmount.value = '';
+    updateUI(currentAccount);
+  }
+});
