@@ -14,9 +14,9 @@ Person.prototype.calcAge = function () {
 
 let ritesh = new Person("ritesh", 1988);
 ritesh.calcAge();
-console.log(ritesh);
-console.log(ritesh.__proto__);
-console.log(ritesh.__proto__ === Person.prototype);
+// console.log(ritesh);
+// console.log(ritesh.__proto__);
+// console.log(ritesh.__proto__ === Person.prototype);
 
-console.log(Person.prototype.isPrototypeOf(ritesh));
-console.log(Person.prototype.isPrototypeOf(Person));
+// console.log(Person.prototype.isPrototypeOf(ritesh));
+// console.log(Person.prototype.isPrototypeOf(Person));
