@@ -20,3 +20,16 @@ ritesh.calcAge();
 
 // console.log(Person.prototype.isPrototypeOf(ritesh));
 // console.log(Person.prototype.isPrototypeOf(Person));
+
+// Static method
+Person.sayHi = function () {
+  console.log("Hello user!!");
+};
+
+Person.sayHi();
+
+
+// Getter Setter
+const student {
+  
+}
