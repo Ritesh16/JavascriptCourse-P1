@@ -8,6 +8,14 @@ class Person {
     const currentYear = new Date().getFullYear();
     console.log(currentYear - this.birthYear);
   }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(n) {
+    this._name = n;
+  }
 }
 
 // Static function
@@ -20,3 +28,8 @@ person.calculateAge();
 
 Person.sayHi();
 //person.sayHi();  NOT available
+
+console.log(person.name);
+
+person.name = "ritesh sharma";
+console.log(person.name);

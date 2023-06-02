@@ -28,8 +28,33 @@ Person.sayHi = function () {
 
 Person.sayHi();
 
-
 // Getter Setter
-const student {
-  
-}
+const student = {
+  name: "data",
+  fullName: "full name",
+
+  get getName() {
+    return this.name;
+  },
+
+  set getName(n) {
+    this.name = n;
+  },
+
+  get getFullName() {
+    return this._fullname;
+  },
+
+  set getFullName(n) {
+    this._fullname = n;
+  },
+};
+
+console.log("GET", student.getName);
+student.getName = "ritesh";
+console.log("SET", student.getName);
+
+console.log("GET FN", student.getFullName);
+student.getFullName = "ritesh sharma";
+console.log("SET FN", student.getFullName);
+console.log(student);
