@@ -5,7 +5,7 @@ const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
 function getCountryData(country) {
-  const request = new XMLHttpRequest(country);
+  const request = new XMLHttpRequest();
   request.open(
     'GET',
     `https://restcountries.com/v3.1/name/${country}?fullText=true`
@@ -14,24 +14,26 @@ function getCountryData(country) {
 
   request.addEventListener('load', function () {
     const [data] = JSON.parse(this.responseText);
-    console.log(data);
 
-    let languages = '';
-    let currencies = '';
+    renderCountry(data);
+  });
+}
 
-    for (const p in data.languages) {
-      languages += data.languages[p] + ', ';
-    }
+function renderCountry(data) {
+  let languages = '';
+  let currencies = '';
 
-    languages = languages.substring(0, languages.length - 2);
+  for (const p in data.languages) {
+    languages += data.languages[p] + ', ';
+  }
 
-    console.log(languages);
+  languages = languages.substring(0, languages.length - 2);
 
-    for (const c in data.currencies) {
-      currencies += data.currencies[c].name + `(${data.currencies[c].symbol})`;
-    }
+  for (const c in data.currencies) {
+    currencies += data.currencies[c].name + `(${data.currencies[c].symbol})`;
+  }
 
-    const html = `
+  const html = `
       <article class="country">
               <img class="country__img" src="${data.flags.png}" />
               <div class="country__data">
@@ -46,10 +48,20 @@ function getCountryData(country) {
             </article>
       `;
 
-    countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
-  });
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
 }
 
-getCountryData('India');
-getCountryData('united states of america');
+const getCountryDataFetch = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
+    .then(response => response.json())
+    .then(data => renderCountry(data[0]));
+};
+
+// getCountryData('India');
+// getCountryData('united states of america');
+
+getCountryDataFetch('India');
+getCountryDataFetch('United States');
+getCountryDataFetch('Canada');
+getCountryDataFetch('Australia');
