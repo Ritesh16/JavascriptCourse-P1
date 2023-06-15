@@ -4,6 +4,18 @@ const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
+const getJson = function (url, errorMessage = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMessage} (${response.status})`);
+    return response.json();
+  });
+};
+
+const renderError = function (message) {
+  countriesContainer.insertAdjacentText('beforeend', message);
+  countriesContainer.style.opacity = 1;
+};
+
 function getCountryData(country) {
   const request = new XMLHttpRequest();
   request.open(
@@ -51,18 +63,46 @@ function renderCountry(data, className = '') {
   countriesContainer.insertAdjacentHTML('beforeend', html);
 }
 
+// const getCountryDataFetch = function (country) {
+//   fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
+//     .then(response => response.json())
+//     .then(data => {
+//       const code = data[0].borders[0];
+//       renderCountry(data[0]);
+//       return fetch(`https://restcountries.com/v3.1/alpha/${code}`);
+//     })
+//     .then(response => response.json())
+//     .then(data => renderCountry(data[0], 'neighbour'))
+//     .catch(error => {
+//       // handling error
+//     })
+//     .finally(x => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// };
+
 const getCountryDataFetch = function (country) {
-  fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
-    .then(response => response.json())
+  getJson(
+    `https://restcountries.com/v3.1/name/${country}?fullText=true`,
+    'Country not found.'
+  )
     .then(data => {
-      const code = data[0].borders[0];
       renderCountry(data[0]);
-      return fetch(`https://restcountries.com/v3.1/alpha/${code}`);
+
+      if (!data[0]?.borders || data[0]?.borders[0])
+        throw new Error('No neighbor found!');
+
+      const neighbour = data[0]?.borders[0];
+
+      return getJson(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
+        'Country not found.'
+      );
     })
-    .then(response => response.json())
     .then(data => renderCountry(data[0], 'neighbour'))
     .catch(error => {
-      // handling error
+      console.log(`${error} 💥💥💥`);
+      renderError(`Something went wrong 💥💥💥 ${error.message}. Try again!`);
     })
     .finally(x => {
       countriesContainer.style.opacity = 1;
@@ -72,4 +112,4 @@ const getCountryDataFetch = function (country) {
 // getCountryData('India');
 // getCountryData('united states of america');
 
-getCountryDataFetch('Sri lanka');
+getCountryDataFetch('Australia');
