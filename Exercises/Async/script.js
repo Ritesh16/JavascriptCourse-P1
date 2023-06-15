@@ -19,7 +19,7 @@ function getCountryData(country) {
   });
 }
 
-function renderCountry(data) {
+function renderCountry(data, className = '') {
   let languages = '';
   let currencies = '';
 
@@ -34,7 +34,7 @@ function renderCountry(data) {
   }
 
   const html = `
-      <article class="country">
+      <article class="country ${className}">
               <img class="country__img" src="${data.flags.png}" />
               <div class="country__data">
                 <h3 class="country__name">${data.name.common}</h3>
@@ -49,19 +49,27 @@ function renderCountry(data) {
       `;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
 }
 
 const getCountryDataFetch = function (country) {
   fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
     .then(response => response.json())
-    .then(data => renderCountry(data[0]));
+    .then(data => {
+      const code = data[0].borders[0];
+      renderCountry(data[0]);
+      return fetch(`https://restcountries.com/v3.1/alpha/${code}`);
+    })
+    .then(response => response.json())
+    .then(data => renderCountry(data[0], 'neighbour'))
+    .catch(error => {
+      // handling error
+    })
+    .finally(x => {
+      countriesContainer.style.opacity = 1;
+    });
 };
 
 // getCountryData('India');
 // getCountryData('united states of america');
 
-getCountryDataFetch('India');
-getCountryDataFetch('United States');
-getCountryDataFetch('Canada');
-getCountryDataFetch('Australia');
+getCountryDataFetch('Sri lanka');
