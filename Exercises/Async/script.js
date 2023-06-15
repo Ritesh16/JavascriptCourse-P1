@@ -2,8 +2,10 @@
 
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
+const apiKey = '915177630893820971044x48325';
 
 ///////////////////////////////////////
+
 const getJson = function (url, errorMessage = 'Something went wrong') {
   return fetch(url).then(response => {
     if (!response.ok) throw new Error(`${errorMessage} (${response.status})`);
@@ -88,8 +90,8 @@ const getCountryDataFetch = function (country) {
   )
     .then(data => {
       renderCountry(data[0]);
-
-      if (!data[0]?.borders || data[0]?.borders[0])
+      console.log(data[0]);
+      if (!data[0]?.borders || !data[0]?.borders[0])
         throw new Error('No neighbor found!');
 
       const neighbour = data[0]?.borders[0];
@@ -112,4 +114,25 @@ const getCountryDataFetch = function (country) {
 // getCountryData('India');
 // getCountryData('united states of america');
 
-getCountryDataFetch('Australia');
+const getPosition = function () {
+  return navigator.geolocation.getCurrentPosition(
+    function (position) {
+      const { latitude } = position.coords;
+      const { longitude } = position.coords;
+
+      const coords = [latitude, longitude];
+      fetch(
+        `https://geocode.xyz/${latitude},${longitude}}?geoit=json&auth=${apiKey}`
+      )
+        .then(response => response.json())
+        .then(data => {
+          getCountryDataFetch(data.country);
+        });
+    },
+    () => alert('unable to get coords!')
+  );
+};
+
+getPosition();
+
+//getCountryDataFetch('Australia');
