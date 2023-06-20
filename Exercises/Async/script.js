@@ -114,6 +114,7 @@ const getCountryDataFetch = function (country) {
 // getCountryData('India');
 // getCountryData('united states of america');
 
+// Promisifying async operation
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
