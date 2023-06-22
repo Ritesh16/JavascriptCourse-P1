@@ -111,6 +111,22 @@ const getCountryDataFetch = function (country) {
     });
 };
 
+const getCountryDataFetchAsync = async function (country) {
+  try {
+    const response = await getJson(
+      `https://restcountries.com/v3.1/name/${country}?fullText=true`,
+      'Country not found.'
+    );
+
+    const dd
+
+    console.log(4, data[0]);
+    renderCountry(data[0]);
+  } catch (error) {
+    console.log(`----> ${error}`);
+  }
+};
+
 // getCountryData('India');
 // getCountryData('united states of america');
 
@@ -121,20 +137,17 @@ const getPosition = function () {
   });
 };
 
-const init = function () {
-  getPosition().then(pos => {
-    console.log(pos.coords);
-    const { latitude, longitude } = pos.coords;
+(async function () {
+  const pos = await getPosition();
+  const { latitude, longitude } = pos.coords;
 
-    return fetch(
-      `https://geocode.xyz/${latitude},${longitude}}?geoit=json&auth=${apiKey}`
-    )
-      .then(response => response.json())
-      .then(data => {
-        getCountryDataFetch(data.country);
-      });
-  });
-};
+  const promise = await fetch(
+    `https://geocode.xyz/${latitude},${longitude}}?geoit=json&auth=${apiKey}`
+  );
 
-init();
+  const data = await promise.json();
+  console.log(3, data.country);
+  await getCountryDataFetchAsync(data.country);
+})();
+
 //getCountryDataFetch('Australia');
