@@ -20,3 +20,5 @@ console.log(1, stateCloneDeep);
 if (module.hot) {
   module.hot.accept();
 }
+
+Promise.resolve('TEST').then(x => console.log(x));
