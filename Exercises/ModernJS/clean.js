@@ -1,4 +1,4 @@
-var budget = [
+let budget = [
   { value: 250, description: 'Sold old TV 📺', user: 'jonas' },
   { value: -45, description: 'Groceries 🥑', user: 'jonas' },
   { value: 3500, description: 'Monthly salary 👩‍💻', user: 'jonas' },
@@ -9,18 +9,18 @@ var budget = [
   { value: -1800, description: 'New Laptop 💻', user: 'jonas' },
 ];
 
-var limits = {
+let spendingLimits = {
   jonas: 1500,
   matilda: 100,
 };
 
-var add = function (value, description, user) {
+let addExpense = function (value, description, user) {
   if (!user) user = 'jonas';
   user = user.toLowerCase();
 
-  var lim;
-  if (limits[user]) {
-    lim = limits[user];
+  let lim;
+  if (spendingLimits[user]) {
+    lim = spendingLimits[user];
   } else {
     lim = 0;
   }
@@ -29,16 +29,16 @@ var add = function (value, description, user) {
     budget.push({ value: -value, description: description, user: user });
   }
 };
-add(10, 'Pizza 🍕');
-add(100, 'Going to movies 🍿', 'Matilda');
-add(200, 'Stuff', 'Jay');
+addExpense(10, 'Pizza 🍕');
+addExpense(100, 'Going to movies 🍿', 'Matilda');
+addExpense(200, 'Stuff', 'Jay');
 console.log(budget);
 
-var check = function () {
+let check = function () {
   for (var el of budget) {
     var lim;
-    if (limits[el.user]) {
-      lim = limits[el.user];
+    if (spendingLimits[el.user]) {
+      lim = spendingLimits[el.user];
     } else {
       lim = 0;
     }
@@ -52,7 +52,7 @@ check();
 
 console.log(budget);
 
-var bigExpenses = function (limit) {
+let bigExpenses = function (limit) {
   var output = '';
   for (var el of budget) {
     if (el.value <= -limit) {
