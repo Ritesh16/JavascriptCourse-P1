@@ -1,5 +1,5 @@
 const recipeContainer = document.querySelector(".recipe");
-const key = "";
+const key = "1f3f0c72-011c-4eb8-ad0c-56f868d27295";
 const timeout = function(s) {
     return new Promise(function(_, reject) {
         setTimeout(function() {
@@ -94,7 +94,7 @@ const showRecipe = async function() {
       </div>
     </li>
 `;
-        })}
+        }).join("")}
     </ul>
   </div>
 
