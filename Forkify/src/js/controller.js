@@ -1,7 +1,9 @@
 import icons from '../img/icons.svg';
-console.log(icons);
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 const recipeContainer = document.querySelector('.recipe');
-const key = '';
+const key = '805c728d-5987-4b1c-85e0-4c22d54d455b';
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -15,11 +17,23 @@ const timeout = function (s) {
 
 ///////////////////////////////////////
 
-console.log('TEST');
+const showSpinner = function (parentEl) {
+  const markup = `
+  <div>
+   <svg>
+      <use href="${icons}#icon-loader"></use>
+   </svg>
+  </div>
+  `;
+
+  parentEl.innerHTML = '';
+  parentEl.insertAdjacentHTML('afterbegin', parentEl);
+};
 
 const showRecipe = async function () {
   // 1. Get Recipe
   try {
+    showSpinner(recipeContainer);
     const res = await fetch(
       `https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886?key=${key}`
     );
