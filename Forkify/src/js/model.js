@@ -1,5 +1,6 @@
 import { async } from 'regenerator-runtime/runtime';
-import { config } from './config.js';
+import { API_KEY, API_URL } from './config.js';
+import { getJSON } from './helpers.js';
 
 export const state = {
   recipe: {},
@@ -7,12 +8,7 @@ export const state = {
 
 export const loadRecipe = async function (id) {
   try {
-    const res = await fetch(
-      `https://forkify-api.herokuapp.com/api/v2/recipes/${id}?key=${config.apiKey}`
-    );
-
-    const data = await res.json();
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    const data = await getJSON(`${API_URL}${id}?key=${API_KEY}`);
 
     const { recipe } = data.data;
     state.recipe = {
@@ -27,5 +23,6 @@ export const loadRecipe = async function (id) {
     };
   } catch (error) {
     alert(error);
+    console.log(error);
   }
 };
