@@ -25,6 +25,25 @@ class RecipeView {
     this.#parentElement.insertAdjacentHTML('afterbegin', markup);
   };
 
+  addRenderHandle(handle) {
+    ['hashchange', 'load'].forEach(ev => {
+      window.addEventListener(ev, handle);
+    });
+  }
+
+  renderError(message) {
+    const markup = `
+    <div class="error">
+    <div>
+      <svg>
+        <use href="src/img/icons.svg#icon-alert-triangle"></use>
+      </svg>
+    </div>
+    <p>${message}</p>
+  </div>
+    `;
+  }
+
   #clear() {
     this.#parentElement.innerHTML = '';
   }
