@@ -26,7 +26,7 @@
 47D:\Apps\JavascriptCourse-P1\Forkify\.prettierrc133330349055681862 0
 67D:\Apps\JavascriptCourse-P1\Forkify\node_modules\dom-serializer\lib133330390586370080 1
 80D:\Apps\JavascriptCourse-P1\Forkify\node_modules\core-js\full\array\find-last.js133336380585410754 0
-40D:\Apps\JavascriptCourse-P1\Forkify\dist133344406268649914 1
+40D:\Apps\JavascriptCourse-P1\Forkify\dist133346129626744886 1
 77D:\Apps\JavascriptCourse-P1\Forkify\node_modules\core-js\full\array\reduce.js133336380599145053 0
 79D:\Apps\JavascriptCourse-P1\Forkify\node_modules\core-js\full\string\replace.js133336380599826050 0
 109D:\Apps\JavascriptCourse-P1\Forkify\node_modules\htmlnano\docs\versioned_docs\version-1.1.1\060-contribute.md133330390597996772 0
@@ -155,7 +155,7 @@
 80D:\Apps\JavascriptCourse-P1\Forkify\node_modules\css-tree\lib\lexer\structure.js133330390607569785 0
 78D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\workers\src\Worker.js133330390593220804 0
 120D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\package-manager\test\fixtures\has-foo\node_modules\foo\index.js133330390582344276 0
-56D:\Apps\JavascriptCourse-P1\Forkify\src\js\views\view.js133344248573966877 0
+56D:\Apps\JavascriptCourse-P1\Forkify\src\js\views\view.js133346129626014658 0
 92D:\Apps\JavascriptCourse-P1\Forkify\node_modules\caniuse-lite\data\features\dispatchevent.js133330390608488632 0
 82D:\Apps\JavascriptCourse-P1\Forkify\node_modules\lmdb\dependencies\lz4\lib\lz4hc.c133330390592593876 0
 85D:\Apps\JavascriptCourse-P1\Forkify\node_modules\ordered-binary\assets\powers-dre.png133330390584873500 0
@@ -218,7 +218,7 @@
 88D:\Apps\JavascriptCourse-P1\Forkify\node_modules\core-js\features\dom-exception\index.js133336380591017863 0
 57D:\Apps\JavascriptCourse-P1\Forkify\node_modules\argparse133330390582401635 1
 78D:\Apps\JavascriptCourse-P1\Forkify\node_modules\css-tree\lib\syntax\create.js133330390603759807 0
-63D:\Apps\JavascriptCourse-P1\Forkify\src\js\views\resultsView.js133344406267743486 0
+63D:\Apps\JavascriptCourse-P1\Forkify\src\js\views\resultsView.js133346127421452662 0
 89D:\Apps\JavascriptCourse-P1\Forkify\node_modules\lmdb\dependencies\lmdb-data-v1\libraries133330390573161355 1
 77D:\Apps\JavascriptCourse-P1\Forkify\node_modules\posthtml-parser\package.json133330390578425874 0
 71D:\Apps\JavascriptCourse-P1\Forkify\node_modules\svgo\lib\svgo\tools.js133330390598626885 0
@@ -2508,7 +2508,7 @@
 79D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\fs-search\package.json133330390576123524 0
 67D:\Apps\JavascriptCourse-P1\Forkify\node_modules\js-yaml\lib\schema133330390587393933 1
 97D:\Apps\JavascriptCourse-P1\Forkify\node_modules\csso\node_modules\mdn-data\css\units.schema.json133330390590382361 0
-59D:\Apps\JavascriptCourse-P1\Forkify\dist\icons.21bad73c.svg133344405169059903 0
+59D:\Apps\JavascriptCourse-P1\Forkify\dist\icons.21bad73c.svg133346129222775598 0
 67D:\Apps\JavascriptCourse-P1\Forkify\node_modules\msgpackr\unpack.js133330390589413690 0
 67D:\Apps\JavascriptCourse-P1\Forkify\node_modules\error-ex\README.md133330390576911270 0
 103D:\Apps\JavascriptCourse-P1\Forkify\node_modules\csso\node_modules\css-tree\cjs\syntax\pseudo\index.cjs133330390597449893 0
@@ -8646,7 +8646,7 @@
 100D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\transformer-react-refresh-wrap\package.json133330390582364277 0
 122D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\transformer-react-refresh-wrap\src\ReactRefreshWrapTransformer.js133330390580176655 0
 110D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\transformer-react-refresh-wrap\lib\helpers\helpers.js133330390575470664 0
-61D:\Apps\JavascriptCourse-P1\Forkify\dist\favicon.8b2f57bf.png133344405169209919 0
+61D:\Apps\JavascriptCourse-P1\Forkify\dist\favicon.8b2f57bf.png133346129222645083 0
 85D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\transformer-raw\package.json133330390577436008 0
 76D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\transformer-raw\src133330390576342983 1
 96D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\transformer-posthtml\src\loadPlugins.js133330390576548622 0
@@ -8902,7 +8902,7 @@
 99D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-svgo\node_modules\csso\README.md133330390596287887 0
 119D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\node\String.js133330390601653137 0
 105D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\compress.js133330390587265846 0
-58D:\Apps\JavascriptCourse-P1\Forkify\dist\index.e37f48ea.js133344406268605435 0
+58D:\Apps\JavascriptCourse-P1\Forkify\dist\index.e37f48ea.js133346129626671066 0
 102D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\index.js133330390592582123 0
 101D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\replace133330390595432871 1
 125D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\restructure\3-disjoinRuleset.js133330390577523451 0
@@ -9127,7 +9127,7 @@
 123D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\css\selectors.schema.json133330390588123562 0
 115D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\css\syntaxes.json133330390588668783 0
 112D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\css\types.json133330390589403091 0
-58D:\Apps\JavascriptCourse-P1\Forkify\dist\logo.726d37a8.png133344405168988439 0
+58D:\Apps\JavascriptCourse-P1\Forkify\dist\logo.726d37a8.png133346129222428711 0
 112D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\css\units.json133330390589977624 0
 110D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\api\index.js133330390575370686 0
 125D:\Apps\JavascriptCourse-P1\Forkify\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\api\inheritance.schema.json133330390585239405 0
@@ -9623,7 +9623,7 @@
 62D:\Apps\JavascriptCourse-P1\Forkify\node_modules\.bin\svgo.ps1133330391072757636 0
 60D:\Apps\JavascriptCourse-P1\Forkify\dist\Forkify.3464ddca.js133336362933592520 0
 58D:\Apps\JavascriptCourse-P1\Forkify\dist\index.62406edb.js133336362955262684 0
-62D:\Apps\JavascriptCourse-P1\Forkify\dist\index.e37f48ea.js.map133344406268639929 0
-59D:\Apps\JavascriptCourse-P1\Forkify\dist\index.f7626f62.css133344405168696455 0
-63D:\Apps\JavascriptCourse-P1\Forkify\dist\index.f7626f62.css.map133344405168777993 0
-51D:\Apps\JavascriptCourse-P1\Forkify\dist\index.html133344405169500484 0
+62D:\Apps\JavascriptCourse-P1\Forkify\dist\index.e37f48ea.js.map133346129626725161 0
+59D:\Apps\JavascriptCourse-P1\Forkify\dist\index.f7626f62.css133346129222558645 0
+63D:\Apps\JavascriptCourse-P1\Forkify\dist\index.f7626f62.css.map133346129222589593 0
+51D:\Apps\JavascriptCourse-P1\Forkify\dist\index.html133346129222368654 0

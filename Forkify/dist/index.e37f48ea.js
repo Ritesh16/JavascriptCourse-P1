@@ -3050,6 +3050,8 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class View {
     _data;
     render(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        console.log(123);
         this._data = data;
         const markup = this._generateMarkup();
         this._clear();
@@ -3131,6 +3133,8 @@ var _iconsSvg = require("../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class ResultsView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".results");
+    _errorMessage = "No recipe found for your query. Please try again later.";
+    _message = "";
     _generateMarkup() {
         return this._data.map(this._generateMarkupPreview).join("");
     }
