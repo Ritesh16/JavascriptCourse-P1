@@ -649,8 +649,13 @@ const controlBooksmarks = function() {
     (0, _bookmarksViewJsDefault.default).render(_modelJs.state.bookmarks);
 };
 const controlAddRecipe = function(newRecipe) {
-    console.log(newRecipe);
-// Upload new Recipe data
+    try {
+        // Upload new Recipe data
+        _modelJs.uploadRecipe(newRecipe);
+    } catch (error) {
+        console.error(error);
+        (0, _addRecipeViewJsDefault.default).renderError(error);
+    }
 };
 const init = function() {
     (0, _bookmarksViewJsDefault.default).addHandlerRender(controlBooksmarks);
@@ -2015,6 +2020,7 @@ parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
 parcelHelpers.export(exports, "updateServings", ()=>updateServings);
 parcelHelpers.export(exports, "addBookmark", ()=>addBookmark);
 parcelHelpers.export(exports, "removeBookmark", ()=>removeBookmark);
+parcelHelpers.export(exports, "uploadRecipe", ()=>uploadRecipe);
 var _runtime = require("regenerator-runtime/runtime");
 var _configJs = require("./config.js");
 var _helpersJs = require("./helpers.js");
@@ -2102,6 +2108,24 @@ const init = function() {
     if (storage) state.bookmarks = JSON.parse(storage);
 };
 init();
+const uploadRecipe = async function(newRecipe) {
+    try {
+        console.log(Object.enteries(newRecipe));
+        const ingredients = Object.enteries(newRecipe).filter((entry)=>entry[0].startsWith("ingredient") && entry[1] !== "").map((ing)=>{
+            const ingArray = ing[1].replaceAll(" ", "").split(",");
+            if (ingArray.length !== 3) throw Error("Wrong ingredient format! Please use correct format.");
+            const [quantity, unit, description] = ingArray;
+            return {
+                quantity: quantity ? +quantity : null,
+                unit,
+                description
+            };
+        });
+        console.log(ingredients);
+    } catch (error) {
+        throw error;
+    }
+};
 
 },{"regenerator-runtime/runtime":"dXNgZ","./config.js":"k5Hzs","./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
 /**

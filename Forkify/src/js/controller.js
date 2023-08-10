@@ -87,9 +87,13 @@ const controlBooksmarks = function () {
 };
 
 const controlAddRecipe = function (newRecipe) {
-  console.log(newRecipe);
-
-  // Upload new Recipe data
+  try {
+    // Upload new Recipe data
+    model.uploadRecipe(newRecipe);
+  } catch (error) {
+    console.error(error);
+    addRecipeView.renderError(error);
+  }
 };
 
 const init = function () {

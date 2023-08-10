@@ -107,3 +107,24 @@ const init = function () {
 };
 
 init();
+
+export const uploadRecipe = async function (newRecipe) {
+  try {
+    console.log(Object.enteries(newRecipe));
+
+    const ingredients = Object.enteries(newRecipe)
+      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
+      .map(ing => {
+        const ingArray = ing[1].replaceAll(' ', '').split(',');
+        if (ingArray.length !== 3)
+          throw Error('Wrong ingredient format! Please use correct format.');
+        const [quantity, unit, description] = ingArray;
+
+        return { quantity: quantity ? +quantity : null, unit, description };
+      });
+
+    console.log(ingredients);
+  } catch (error) {
+    throw error;
+  }
+};
